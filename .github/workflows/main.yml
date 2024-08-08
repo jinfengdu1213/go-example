@@ -1,0 +1,20 @@
+name: Cleanup Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      clean_repo:
+        description: 'Set to "true" to clean the repo'
+        required: true
+        default: 'false'
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.clean_repo == 'true' }}
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Clean Repository
+      run: git clean -fdx
