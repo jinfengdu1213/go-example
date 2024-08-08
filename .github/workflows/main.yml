@@ -13,7 +13,7 @@ jobs:
   cleanup:
     runs-on: ubuntu-latest
     # ${{ github.event.inputs.clean_repo == 'true' }}
-    if: ${{ inputs.clean_repo == 'true' || inputs.clean_repo == true }}
+    if: ${{ inputs.clean_repo == true }}
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
